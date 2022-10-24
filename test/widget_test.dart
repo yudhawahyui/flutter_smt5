@@ -63,4 +63,22 @@ void main() {
   print(kelas);
   print(kelas['nama']);
   print(kelas['jurusan']);
+
+  // Operator
+  int a, b;
+  a = 10;
+  b = 5;
+
+  print("A = " + a.toString());
+  print("B = " + b.toString());
+
+  print(a + b);
+  print(a - b);
+  print(a * b);
+  print(a / b);
+  print(a % b);
+  print(a > b);
+  print(a < b);
+  print(a <= b);
+  print(a >= b);
 }
