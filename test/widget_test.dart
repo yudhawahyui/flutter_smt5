@@ -11,20 +11,56 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_smt5/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  // Tipe Data Dan Variable
+  var mahasiswa = 'Yudha Wahyu';
+  var umur = "22";
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  print(mahasiswa + "Umur = " + umur.toString());
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  // String
+  String nama;
+  nama = 'Yudha Wahyu Iskandar';
+  print(nama);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
+  // Integer
+  int semester = 5;
+  print(semester);
+
+  // Double
+  double ipk = 3.5;
+  print(ipk);
+
+  // Boolean
+  bool benar = true;
+  bool salah = false;
+  bool tidakBenar = !true;
+  bool tidakSalah = !false;
+  print(benar);
+  print(salah);
+  print(tidakBenar);
+  print(tidakSalah);
+
+  // List
+  List jurusan = [
+    "Teknik Informatika",
+    "Sistem Informasi",
+    "Manajemen Bisnis",
+    semester.toString(),
+    ipk.toString(),
+    true
+  ];
+  print(jurusan);
+
+  // Map
+  Map kelas = {
+    "nama": "Yudha Wahyu Iskandar",
+    "umur": 22,
+    "jurusan": "Sistem Informasi",
+    "semester": 5,
+    "ipk": 3.5,
+    "status": true
+  };
+  print(kelas);
+  print(kelas['nama']);
+  print(kelas['jurusan']);
 }
