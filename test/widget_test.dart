@@ -11,132 +11,224 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_smt5/main.dart';
 
 void main() {
-  // Tipe Data Dan Variable
-  var mahasiswa = 'Yudha Wahyu';
-  var umur = "22";
+  //tipe data dan variabele
+  //var
+  var mahasiswa = "jejen";
+  var umur = 20;
 
-  print(mahasiswa + "Umur = " + umur.toString());
+  print(mahasiswa + " umur = " + umur.toString());
 
-  // String
-  String nama;
-  nama = 'Yudha Wahyu Iskandar';
-  print(nama);
+  //string
+  String mahasiswaString;
+  mahasiswaString = "aan";
 
-  // Integer
-  int semester = 5;
+  print(mahasiswaString);
+
+  //int
+  int semester;
+  semester = 6;
+
   print(semester);
 
-  // Double
-  double ipk = 3.5;
+  //double
+  double ipk;
+  ipk = 3;
+
   print(ipk);
 
-  // Boolean
+  //boolean
   bool benar = true;
   bool salah = false;
-  bool tidakBenar = !true;
-  bool tidakSalah = !false;
-  print(benar);
-  print(salah);
-  print(tidakBenar);
-  print(tidakSalah);
+  bool tidakbenar = !true;
+  bool tidaksalah = !false;
 
-  // List
+  //List
   List jurusan = [
     "Teknik Informatika",
     "Sistem Informasi",
-    "Manajemen Bisnis",
+    "DKV",
     semester.toString(),
-    ipk.toString(),
-    true
+    ipk.toString()
   ];
+
   print(jurusan);
 
-  // Map
-  Map kelas = {
-    "nama": "Yudha Wahyu Iskandar",
-    "umur": 22,
-    "jurusan": "Sistem Informasi",
-    "semester": 5,
-    "ipk": 3.5,
-    "status": true
+  //Map
+  Map<String, dynamic> kelas = {
+    "nama": "beben",
+    "kelas": "TI 2",
   };
+
   print(kelas);
   print(kelas['nama']);
-  print(kelas['jurusan']);
+  print(kelas['kelas']);
 
-  // Operator
+  //oprator
   int a, b;
-  a = 10;
-  b = 5;
+  a = 9;
+  b = 7;
+  print("a = " + a.toString());
+  print("b = " + b.toString());
 
-  print("A = " + a.toString());
-  print("B = " + b.toString());
+  print({a + b});
+  print({a - b});
+  print({a / b});
+  print({a = b});
+  print({a > b});
+  print({a < b});
+  print({a >= b});
+  print({a <= b});
 
-  print(a + b);
-  print(a - b);
-  print(a * b);
-  print(a / b);
-  print(a % b);
-  print(a > b);
-  print(a < b);
-  print(a <= b);
-  print(a >= b);
-
-  // Conditional
-  print("Conditional");
+  //conditional
+  print("conditional");
   var nilai;
-  nilai = 50;
+  nilai = 80;
 
   if (nilai >= 80) {
     print("A");
   } else if (nilai <= 80 && nilai >= 50) {
     print("B");
   } else {
-    print("Tidak Lulus");
+    print("tidak lulus");
   }
 
-  print("==================");
-  nilai >= 80 ? print("A") : print("Tidak Lulus");
-  print("==================");
+  print("..........");
+  nilai >= 80 ? print("A") : print("tidak A");
 
-  // Function
-  print("Function");
-  hitungNilai();
-  var p = hitungNilai1(2, 50);
+  //function
+  print("function");
+
+  hitungnilai();
+  hitungnilai1(75, 90);
+  var p = hitungnilai1(50, 2, 56);
   print(p);
-  var n = hitungNilai2(nilai1: 50, nilai2: 2);
+  var n = hitungnilai2(mapel1: 50, mapel2: 2);
   print(n);
-  hitungNilai3(40, 40);
-}
+  hitungnilai3(79, 100);
+  var o = hitungnilai3(79, 100);
 
-// function
-hitungNilai() {
-  print("Hitung Nilai");
-}
+  //final keyword +> imutable / tidak bisa dirubah
+  //const final
+  //const
+  //const String mahasiswa = 'beben';
+  //final
+  final String mahasiswafk;
 
-// positional argument
-hitungNilai1(nilai1, nilai2, [nilai3]) {
-  var nilaiAkhir;
-  if (nilai3 != null) {
-    nilaiAkhir = nilai1 / nilai2 + nilai3;
-  } else {
-    nilaiAkhir = nilai1 / nilai2;
+  mahasiswafk = 'beben';
+
+  print(mahasiswafk);
+
+  //null safety
+  // ? ! late
+  // ? digunakan dia boleh null
+  late String jurusanns;
+
+  jurusanns = "teknik informatika";
+  //jurusan = "TI";
+  // memaksa untuk di jelaskan / yakin ada datanya
+  print(jurusanns.length);
+
+  //perulangan looping
+  // for plus
+  for (int no = 1; no <= 5; no++) {
+    print(no);
   }
-  return nilaiAkhir;
-}
-
-// name argument
-hitungNilai2({nilai1, nilai2}) {
-  var nilaiAkhir;
-  if (nilai2 != null) {
-    nilaiAkhir = nilai1 / nilai2;
-  } else {
-    nilaiAkhir = nilai1;
+  //while
+  int no1 = 1;
+  int no2 = 5;
+  while (no1 <= no2) {
+    print(no1);
+    no1++;
   }
-  return nilaiAkhir;
+  // do while
+  int no3 = 1;
+  int no4 = 5;
+  do {
+    print(no3);
+    no3++;
+  } while (no3 <= no4);
 }
 
-void hitungNilai3(nilai1, nilai2) {
-  var nilaiAkhir = nilai1 + nilai2;
-  print(nilaiAkhir);
+//function
+hitungnilai() {
+  print("hitung nilai");
+}
+
+//positional argument
+hitungnilai1(mapel1, mapel2, [mapel3]) {
+  var nilaiakhir;
+  if (mapel3 != null) {
+    nilaiakhir = mapel1 / mapel2 + mapel3;
+  } else {
+    nilaiakhir = mapel1 / mapel2;
+  }
+  return nilaiakhir;
+}
+
+//name argument
+hitungnilai2({mapel1, mapel2}) {
+  var nilaiakhir;
+  if (mapel2 != null) {
+    nilaiakhir = mapel1 / mapel2;
+  } else {
+    nilaiakhir = mapel1;
+  }
+  return nilaiakhir;
+}
+
+//vold
+hitungnilai3(mapel1, mapel2) {
+  var nilaiakhir = mapel1 + mapel2;
+  print(nilaiakhir);
+}
+
+//oop
+//class
+
+class Kendaraan {
+  String? merek;
+  String? nama;
+  int? kecepatan;
+
+  //construktor
+  Kendaraan({this.merek, this.nama, this.kecepatan});
+
+  //method
+  maju(int tambahkecepatan) {
+    kecepatan = kecepatan! + tambahkecepatan;
+    // print(kecepatan  + tambahkecepatan);
+  }
+}
+
+//inheritance / pewarisan
+class Sedan extends Kendaraan {
+  int? jumlahPintu;
+  int? kecepatanMaksimal;
+
+  Sedan({String? merek, this.jumlahPintu, this.kecepatanMaksimal})
+      : super(merek: merek);
+}
+
+void main2() {
+  //instansiasi
+  var k1 = Kendaraan(merek: "BMW", nama: "civic", kecepatan: 20);
+
+  k1.merek = "toyota";
+  // print(k1.maju(40));
+  print(k1.merek);
+  print(k1.nama);
+  print(k1.kecepatan);
+
+  var k2 = Kendaraan(merek: "misubishi", nama: "colt", kecepatan: 40);
+  k2.maju(80);
+  // print(kecepatan);
+  print(k2.merek);
+  print(k2.nama);
+  print(k2.kecepatan);
+
+  var s1 = Sedan(jumlahPintu: 4, kecepatanMaksimal: 120, merek: "honda");
+  print("........");
+  print(s1.jumlahPintu);
+  print(s1.kecepatanMaksimal);
+  print(s1.merek);
 }
