@@ -128,7 +128,7 @@ void main() {
   // memaksa untuk di jelaskan / yakin ada datanya
   print(jurusanns.length);
 
-  //perulangan looping
+  // looping
   // for plus
   for (int no = 1; no <= 5; no++) {
     print(no);
