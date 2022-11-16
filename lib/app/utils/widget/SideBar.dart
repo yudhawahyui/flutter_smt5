@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_smt5/app/utils/style/AppColor.dart';
 import 'package:get/get.dart';
 import 'package:unicons/unicons.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class SideBar extends StatelessWidget {
       elevation: 0,
       child: Container(
         height: Get.height,
-        color: Colors.blue[100],
+        color: AppColors.primaryBg,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -55,7 +56,9 @@ class SideBar extends StatelessWidget {
                             Get.currentRoute == "/home"
                                 ? UniconsLine.desktop
                                 : UniconsLine.desktop_alt,
-                            color: Colors.grey,
+                            color: Get.currentRoute == "/home"
+                                ? AppColors.secondaryText
+                                : AppColors.primaryText,
                             size: 30,
                           ),
                         ),
@@ -65,7 +68,7 @@ class SideBar extends StatelessWidget {
                         const Text(
                           'Home',
                           style: TextStyle(
-                            color: Colors.grey,
+                            color: AppColors.primaryText,
                             fontSize: 16,
                           ),
                         ),
@@ -98,7 +101,9 @@ class SideBar extends StatelessWidget {
                             Get.currentRoute == "/task"
                                 ? UniconsLine.box
                                 : UniconsLine.cube,
-                            color: Colors.grey,
+                            color: Get.currentRoute == "/task"
+                                ? AppColors.secondaryText
+                                : AppColors.primaryText,
                             size: 30,
                           ),
                         ),
@@ -108,7 +113,7 @@ class SideBar extends StatelessWidget {
                         const Text(
                           'Task',
                           style: TextStyle(
-                            color: Colors.grey,
+                            color: AppColors.primaryText,
                             fontSize: 16,
                           ),
                         ),
@@ -141,7 +146,9 @@ class SideBar extends StatelessWidget {
                             Get.currentRoute == "/friends"
                                 ? UniconsLine.comment_heart
                                 : UniconsLine.heart,
-                            color: Colors.grey,
+                            color: Get.currentRoute == "/friends"
+                                ? AppColors.secondaryText
+                                : AppColors.primaryText,
                             size: 30,
                           ),
                         ),
@@ -151,7 +158,7 @@ class SideBar extends StatelessWidget {
                         const Text(
                           'Friends',
                           style: TextStyle(
-                            color: Colors.grey,
+                            color: AppColors.primaryText,
                             fontSize: 16,
                           ),
                         ),
@@ -184,7 +191,9 @@ class SideBar extends StatelessWidget {
                             Get.currentRoute == "/profile"
                                 ? UniconsLine.user_square
                                 : UniconsLine.user,
-                            color: Colors.grey,
+                            color: Get.currentRoute == "/profile"
+                                ? AppColors.secondaryText
+                                : AppColors.primaryText,
                             size: 30,
                           ),
                         ),
@@ -194,7 +203,7 @@ class SideBar extends StatelessWidget {
                         const Text(
                           'Profile',
                           style: TextStyle(
-                            color: Colors.grey,
+                            color: AppColors.primaryText,
                             fontSize: 16,
                           ),
                         ),

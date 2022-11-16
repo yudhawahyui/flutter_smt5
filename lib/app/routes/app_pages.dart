@@ -21,28 +21,38 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => const HomeView(),
+      page: () => HomeView(),
       binding: HomeBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 250),
     ),
     GetPage(
       name: _Paths.PROFILE,
-      page: () => const ProfileView(),
+      page: () => ProfileView(),
       binding: ProfileBinding(),
+      transition: Transition.rightToLeft,
+      transitionDuration: Duration(milliseconds: 250),
     ),
     GetPage(
       name: _Paths.TASK,
-      page: () => const TaskView(),
+      page: () => TaskView(),
       binding: TaskBinding(),
+      transition: Transition.leftToRight,
+      transitionDuration: Duration(milliseconds: 250),
     ),
     GetPage(
       name: _Paths.FRIENDS,
-      page: () => const FriendsView(),
+      page: () => FriendsView(),
       binding: FriendsBinding(),
+      transition: Transition.downToUp,
+      transitionDuration: Duration(milliseconds: 250),
     ),
     GetPage(
       name: _Paths.LOGIN,
-      page: () => const LoginView(),
+      page: () => LoginView(),
       binding: LoginBinding(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 250),
     ),
   ];
 }

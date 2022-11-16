@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smt5/app/utils/style/AppColor.dart';
 
 import 'package:get/get.dart';
 
@@ -7,7 +8,6 @@ import 'package:unicons/unicons.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class LoginView extends GetView<LoginController> {
             : EdgeInsets.all(Get.height * 0.1),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(50)),
-          color: Colors.white,
+          color: AppColors.primaryText,
         ),
 
         // Biru
@@ -29,11 +29,11 @@ class LoginView extends GetView<LoginController> {
                 // Biru
                 Expanded(
                     child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           bottomLeft: Radius.circular(50)),
-                      color: Colors.blue[600],
+                      color: AppColors.primaryBg,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,14 +41,15 @@ class LoginView extends GetView<LoginController> {
                       children: const [
                         Text(
                           "Welcome",
-                          style: TextStyle(color: Colors.white, fontSize: 70),
+                          style: TextStyle(
+                              color: AppColors.primaryText, fontSize: 70),
                         ),
                         Text("Please Login",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 30)),
+                            style: TextStyle(
+                                color: AppColors.primaryText, fontSize: 30)),
                         Text("Start Journey With Us.",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 30)),
+                            style: TextStyle(
+                                color: AppColors.primaryText, fontSize: 30)),
                       ],
                     ),
                   ))
@@ -62,7 +63,7 @@ class LoginView extends GetView<LoginController> {
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(50),
                     bottomRight: Radius.circular(50)),
-                color: Colors.white,
+                color: AppColors.primaryText,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -75,15 +76,17 @@ class LoginView extends GetView<LoginController> {
                           children: [
                             const Text(
                               "Welcome",
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 35),
+                              style: TextStyle(
+                                  color: AppColors.secondaryText, fontSize: 35),
                             ),
                             const Text("Please Login",
                                 style: TextStyle(
-                                    color: Colors.grey, fontSize: 15)),
+                                    color: AppColors.secondaryText,
+                                    fontSize: 15)),
                             const Text("Start Journey With Us.",
                                 style: TextStyle(
-                                    color: Colors.grey, fontSize: 15)),
+                                    color: AppColors.secondaryText,
+                                    fontSize: 15)),
                           ],
                         )
                       : const SizedBox(),
@@ -92,16 +95,13 @@ class LoginView extends GetView<LoginController> {
                     height: Get.height * 0.5,
                   ),
                   FloatingActionButton.extended(
+                    backgroundColor: AppColors.primaryBg,
                     onPressed: () => Get.toNamed("/home"),
                     label: const Text("Login with Google"),
                     icon: const Icon(
                       UniconsLine.google,
-                      color: Colors.white,
+                      color: AppColors.primaryText,
                     ),
-                    // icon: const Icon(
-                    //   Ionicons.logo_google,
-                    //   color: Colors.white,
-                    // ),
                   ),
                 ],
               ),

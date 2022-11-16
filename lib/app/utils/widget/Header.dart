@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_smt5/app/routes/app_pages.dart';
+import 'package:flutter_smt5/app/utils/style/AppColor.dart';
 import 'package:get/get.dart';
 
 class Header extends StatelessWidget {
@@ -12,7 +15,11 @@ class Header extends StatelessWidget {
     return SizedBox(
       height: Get.height * 0.1,
       child: Padding(
-        padding: const EdgeInsets.only(left: 40, right: 40, top: 25),
+        padding: const EdgeInsets.only(
+          left: 40,
+          right: 40,
+          top: 5,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -22,11 +29,11 @@ class Header extends StatelessWidget {
               children: const [
                 Text(
                   "Flutter Management",
-                  style: TextStyle(fontSize: 25, color: Colors.grey),
+                  style: TextStyle(fontSize: 25, color: AppColors.primaryText),
                 ),
                 Text(
                   "Manage Task easily",
-                  style: TextStyle(fontSize: 15, color: Colors.grey),
+                  style: TextStyle(fontSize: 15, color: AppColors.primaryText),
                 ),
               ],
             ),
@@ -58,7 +65,8 @@ class Header extends StatelessWidget {
             const SizedBox(
               width: 20,
             ),
-            const Icon(Icons.notifications, color: Colors.grey),
+            const Icon(Icons.notifications,
+                color: AppColors.primaryText, size: 30),
             const SizedBox(
               width: 20,
             ),
@@ -81,14 +89,18 @@ class Header extends StatelessWidget {
                 children: const [
                   Text(
                     "Sign Out",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                      color: AppColors.primaryText,
+                      fontSize: 18,
+                    ),
                   ),
                   SizedBox(
                     width: 5,
                   ),
-                  Icon(Icons.logout, color: Colors.grey),
-                  SizedBox(
-                    width: 20,
+                  Icon(
+                    Icons.logout,
+                    color: AppColors.primaryText,
+                    size: 30,
                   ),
                 ],
               ),
