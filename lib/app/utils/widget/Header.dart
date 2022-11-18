@@ -24,8 +24,9 @@ class Header extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
                   "Flutter Management",
@@ -74,7 +75,7 @@ class Header extends StatelessWidget {
               onTap: () {
                 Get.defaultDialog(
                   title: "Sign Out",
-                  content: Text("Are you sure to sign out?"),
+                  content: const Text("Are you sure to sign out?"),
                   cancel: ElevatedButton(
                     onPressed: () => Get.back(),
                     child: const Text("Cancel"),

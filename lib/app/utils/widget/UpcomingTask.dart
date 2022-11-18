@@ -16,7 +16,7 @@ class UpcomingTask extends StatelessWidget {
             const Text(
               "Upcoming Task",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 25,
                 color: AppColors.secondaryText,
               ),
             ),

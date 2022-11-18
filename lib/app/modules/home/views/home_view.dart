@@ -5,6 +5,7 @@ import 'package:flutter_smt5/app/utils/widget/SideBar.dart';
 import 'package:flutter_smt5/app/utils/widget/UpcomingTask.dart';
 import 'package:get/get.dart';
 import 'package:unicons/unicons.dart';
+import '../../../utils/widget/myFriends.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -49,8 +50,8 @@ class HomeView extends GetView<HomeController> {
                                 width: 30,
                               ),
                               Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: const [
                                   Text(
                                     "Flutter Management",
@@ -100,20 +101,20 @@ class HomeView extends GetView<HomeController> {
                       child: Column(
                         children: [
                           SizedBox(
-                            height: Get.height * 0.34,
+                            height: !context.isPhone
+                                ? Get.height * 0.33
+                                : Get.height * 0.30,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
                                   "My Tasks",
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 25,
                                     color: AppColors.secondaryText,
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
+
                                 // my task
                                 SizedBox(
                                   height: 200,
@@ -123,7 +124,7 @@ class HomeView extends GetView<HomeController> {
                                     scrollDirection: Axis.horizontal,
                                     children: [
                                       Container(
-                                        width: 400,
+                                        width: !context.isPhone ? 400 : 300,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
@@ -217,7 +218,7 @@ class HomeView extends GetView<HomeController> {
                                         ),
                                       ),
                                       Container(
-                                        width: 400,
+                                        width: !context.isPhone ? 400 : 300,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
@@ -311,7 +312,7 @@ class HomeView extends GetView<HomeController> {
                                         ),
                                       ),
                                       Container(
-                                        width: 400,
+                                        width: !context.isPhone ? 400 : 300,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
@@ -405,7 +406,7 @@ class HomeView extends GetView<HomeController> {
                                         ),
                                       ),
                                       Container(
-                                        width: 400,
+                                        width: !context.isPhone ? 400 : 300,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(20),
@@ -504,43 +505,17 @@ class HomeView extends GetView<HomeController> {
                               ],
                             ),
                           ),
-                          Expanded(
-                            child: Row(
-                              children: [
-                                const UpcomingTask(),
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        children: const [
-                                          Text(
-                                            "My Friends",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: AppColors.secondaryText,
-                                            ),
-                                          ),
-                                          Text(
-                                            "More",
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: AppColors.secondaryText,
-                                            ),
-                                          ),
-                                          Icon(
-                                            UniconsLine.arrow_right,
-                                          ),
-                                        ],
-                                      ),
-                                      // const SizedBox(
-                                      //   height: 20,
-                                      // ),
+                          // Upcoming & My friends
+                          !context.isPhone
+                              ? Expanded(
+                                  child: Row(
+                                    children: const [
+                                      UpcomingTask(),
+                                      MyFriends(),
                                     ],
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
+                                )
+                              : UpcomingTask(),
                         ],
                       ),
                     ),
