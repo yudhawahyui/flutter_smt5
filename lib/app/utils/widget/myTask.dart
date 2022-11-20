@@ -35,7 +35,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     ClipRRect(
@@ -44,7 +44,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     ClipRRect(
@@ -53,7 +53,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     const Spacer(),
@@ -113,7 +113,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     ClipRRect(
@@ -122,7 +122,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     ClipRRect(
@@ -131,7 +131,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     const Spacer(),
@@ -191,7 +191,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     ClipRRect(
@@ -200,7 +200,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     ClipRRect(
@@ -209,7 +209,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     const Spacer(),
@@ -269,7 +269,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     ClipRRect(
@@ -278,7 +278,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     ClipRRect(
@@ -287,7 +287,7 @@ class MyTask extends StatelessWidget {
                         backgroundColor: Colors.amber,
                         radius: 20,
                         foregroundImage: NetworkImage(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                            "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                       ),
                     ),
                     const Spacer(),

@@ -51,21 +51,19 @@ class MyFriends extends StatelessWidget {
                 child: GridView.builder(
                   shrinkWrap: true,
                   itemCount: 9,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 20,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: !context.isPhone ? 3 : 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
                   ),
                   itemBuilder: (context, index) {
                     return Column(
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: const CircleAvatar(
-                            backgroundColor: Colors.amber,
-                            radius: 80,
-                            foregroundImage: NetworkImage(
-                                "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                          borderRadius: BorderRadius.circular(100),
+                          child: const Image(
+                            image: NetworkImage(
+                                "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                           ),
                         ),
                         const SizedBox(

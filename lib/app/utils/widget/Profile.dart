@@ -21,7 +21,7 @@ class Profile extends StatelessWidget {
                       backgroundColor: Colors.amber,
                       radius: 150,
                       foregroundImage: NetworkImage(
-                          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                          "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                     ),
                   ),
                 ),
@@ -32,14 +32,14 @@ class Profile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       Text(
-                        "Elon Musk",
+                        "Ahmad Kratos",
                         style: TextStyle(
                           fontSize: 40,
                           color: AppColors.secondaryText,
                         ),
                       ),
                       Text(
-                        "Tesla CEO | SpaceX CEO | elon.musk@tesla.com",
+                        "God of War | New All Father | ahmad.kratos@olympus.com",
                         style: TextStyle(
                           fontSize: 15,
                           color: AppColors.secondaryText,
@@ -60,21 +60,21 @@ class Profile extends StatelessWidget {
                       backgroundColor: Colors.amber,
                       radius: 150,
                       foregroundImage: NetworkImage(
-                          "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                          "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                     ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   const Text(
-                    "Elon Musk",
+                    "Ahmad Kratos",
                     style: TextStyle(
                       fontSize: 40,
                       color: AppColors.secondaryText,
                     ),
                   ),
                   const Text(
-                    "Tesla CEO | SpaceX CEO | elon.musk@tesla.com",
+                    "God of War | New All Father | ahmad.kratos@olympus.com",
                     style: TextStyle(
                       fontSize: 15,
                       color: AppColors.secondaryText,
