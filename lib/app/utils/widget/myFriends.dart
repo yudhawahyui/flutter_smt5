@@ -70,7 +70,7 @@ class MyFriends extends StatelessWidget {
                           height: 10,
                         ),
                         const Text(
-                          "Elon Musk",
+                          "Ahmad Kratos",
                           style: TextStyle(color: AppColors.secondaryText),
                         ),
                       ],
