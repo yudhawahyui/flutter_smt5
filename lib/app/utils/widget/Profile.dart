@@ -69,7 +69,7 @@ class Profile extends StatelessWidget {
                   const Text(
                     "Ahmad Kratos",
                     style: TextStyle(
-                      fontSize: 40,
+                      fontSize: 30,
                       color: AppColors.secondaryText,
                     ),
                   ),

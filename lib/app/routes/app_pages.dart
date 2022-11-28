@@ -16,7 +16,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
@@ -24,35 +24,35 @@ class AppPages {
       page: () => HomeView(),
       binding: HomeBinding(),
       transition: Transition.fadeIn,
-      transitionDuration: Duration(milliseconds: 250),
+      transitionDuration: const Duration(milliseconds: 250),
     ),
     GetPage(
       name: _Paths.PROFILE,
       page: () => ProfileView(),
       binding: ProfileBinding(),
       transition: Transition.rightToLeft,
-      transitionDuration: Duration(milliseconds: 250),
+      transitionDuration: const Duration(milliseconds: 250),
     ),
     GetPage(
       name: _Paths.TASK,
       page: () => TaskView(),
       binding: TaskBinding(),
       transition: Transition.leftToRight,
-      transitionDuration: Duration(milliseconds: 250),
+      transitionDuration: const Duration(milliseconds: 250),
     ),
     GetPage(
       name: _Paths.FRIENDS,
       page: () => FriendsView(),
       binding: FriendsBinding(),
       transition: Transition.downToUp,
-      transitionDuration: Duration(milliseconds: 250),
+      transitionDuration: const Duration(milliseconds: 250),
     ),
     GetPage(
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
       transition: Transition.fadeIn,
-      transitionDuration: Duration(milliseconds: 250),
+      transitionDuration: const Duration(milliseconds: 250),
     ),
   ];
 }

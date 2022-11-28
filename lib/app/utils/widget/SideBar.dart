@@ -21,6 +21,9 @@ class SideBar extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              const SizedBox(
+                height: 50,
+              ),
               Container(
                 padding: const EdgeInsets.only(
                   top: 30,
@@ -29,7 +32,7 @@ class SideBar extends StatelessWidget {
                 alignment: Alignment.topCenter,
                 height: 100,
                 child: const Image(
-                  image: AssetImage('icons/icon.png'),
+                  image: AssetImage('./assets/icons/icon.png'),
                 ),
               ),
               const SizedBox(
