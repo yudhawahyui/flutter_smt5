@@ -87,15 +87,10 @@ class ProfileView extends GetView<ProfileController> {
                                     ),
                                   );
                                 },
-                                child: Row(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: const [
-                                    Text(
-                                      "Sign Out",
-                                      style: TextStyle(
-                                        color: AppColors.primaryText,
-                                        fontSize: 14,
-                                      ),
-                                    ),
                                     SizedBox(
                                       width: 5,
                                     ),
@@ -103,6 +98,13 @@ class ProfileView extends GetView<ProfileController> {
                                       Icons.logout,
                                       color: AppColors.primaryText,
                                       size: 30,
+                                    ),
+                                    Text(
+                                      "Log Out",
+                                      style: TextStyle(
+                                        color: AppColors.primaryText,
+                                        fontSize: 10,
+                                      ),
                                     ),
                                   ],
                                 ),

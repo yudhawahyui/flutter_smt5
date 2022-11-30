@@ -41,7 +41,7 @@ class Profile extends StatelessWidget {
                       Text(
                         "God of War | New All Father | ahmad.kratos@olympus.com",
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 12,
                           color: AppColors.secondaryText,
                         ),
                       ),
@@ -52,6 +52,7 @@ class Profile extends StatelessWidget {
             )
           : Center(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ClipRRect(
@@ -76,7 +77,7 @@ class Profile extends StatelessWidget {
                   const Text(
                     "God of War | New All Father | ahmad.kratos@olympus.com",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 12,
                       color: AppColors.secondaryText,
                     ),
                   ),

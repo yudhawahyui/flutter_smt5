@@ -77,7 +77,7 @@ class TaskView extends GetView<TaskController> {
                                   backgroundColor: Colors.amber,
                                   radius: 25,
                                   foregroundImage: NetworkImage(
-                                      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Elon_Musk_2015.jpg/640px-Elon_Musk_2015.jpg"),
+                                      "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
                                 ),
                               ),
                             ],
@@ -178,7 +178,7 @@ class TaskView extends GetView<TaskController> {
                                       const Spacer(),
                                       Container(
                                         height: 25,
-                                        width: 80,
+                                        width: 100,
                                         color: AppColors.primaryBg,
                                         child: const Center(
                                           child: Text(
