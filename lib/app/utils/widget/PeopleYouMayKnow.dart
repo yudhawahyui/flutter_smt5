@@ -11,54 +11,70 @@ class PeopleYouMayKnow extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        itemCount: 10,
-        clipBehavior: Clip.antiAlias,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: const Image(
-                    image: NetworkImage(
-                        "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
-                  ),
-                ),
-                const Positioned(
-                  left: 10,
-                  top: 10,
-                  child: Text(
-                    "Ahmad Kratos",
-                    style: TextStyle(
-                        color: AppColors.primaryText,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Positioned(
-                  bottom: 10,
-                  right: 10,
-                  child: SizedBox(
-                    height: 30,
-                    width: 30,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
+      child: FutureBuilder(
+        future: authCon.getPeople(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          var data = snapshot.data!.docs;
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemCount: data.length,
+            clipBehavior: Clip.antiAlias,
+            itemBuilder: (context, index) {
+              var hasil = data[index].data();
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image(
+                        width: Get.width * 0.6,
+                        height: Get.height * 0.5,
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                          hasil['photo'],
                         ),
                       ),
-                      onPressed: () {},
-                      child: const Icon(UniconsLine.plus_circle),
                     ),
-                  ),
-                )
-              ],
-            ),
+                    Positioned(
+                      left: 10,
+                      top: 10,
+                      child: Text(
+                        hasil['name'],
+                        style: const TextStyle(
+                            color: AppColors.primaryText,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      right: 10,
+                      child: SizedBox(
+                        height: 30,
+                        width: 30,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                          ),
+                          onPressed: () => authCon.addFriends(hasil['email']),
+                          child: const Icon(UniconsLine.plus_circle),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              );
+            },
           );
         },
       ),
