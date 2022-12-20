@@ -55,6 +55,10 @@ class MyFriends extends StatelessWidget {
                       return const Center(
                         child: CircularProgressIndicator(),
                       );
+                    } else if (snapshot.data!.data() == null) {
+                      return const Center(
+                        child: Text("You don't have any friends"),
+                      );
                     }
 
                     var myFriends = (snapshot.data!.data()
@@ -88,8 +92,8 @@ class MyFriends extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                   child: Image(
                                     image: NetworkImage(data!['photo']),
-                                    height: Get.height * 0.1,
-                                    width: Get.width * 0.2,
+                                    height: Get.height * 0.15,
+                                    width: Get.width * 0.5,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
