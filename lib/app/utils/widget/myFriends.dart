@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smt5/app/data/controller/authController.dart';
 import 'package:get/get.dart';
 import 'package:unicons/unicons.dart';
 
@@ -6,9 +8,7 @@ import '../../routes/app_pages.dart';
 import '../style/AppColor.dart';
 
 class MyFriends extends StatelessWidget {
-  const MyFriends({
-    Key? key,
-  }) : super(key: key);
+  final autchCon = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -48,35 +48,78 @@ class MyFriends extends StatelessWidget {
               ),
               SizedBox(
                 height: 500,
-                child: GridView.builder(
-                  shrinkWrap: true,
-                  itemCount: 9,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: !context.isPhone ? 3 : 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                  ),
-                  itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: const Image(
-                            image: NetworkImage(
-                                "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
-                          ),
+                child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                    stream: autchCon.streamFriends(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else if (snapshot.data!.data()!.isEmpty) {
+                        return const Center(
+                          child: Text("No Friends"),
+                        );
+                      } else if (snapshot.hasError) {
+                        return const Center(
+                          child: Text("Error"),
+                        );
+                      }
+
+                      var myFriends = (snapshot.data!.data()
+                          as Map<String, dynamic>)['emailFriends'] as List;
+
+                      return GridView.builder(
+                        shrinkWrap: true,
+                        itemCount: myFriends.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: !context.isPhone ? 3 : 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        const Text(
-                          "Ahmad Kratos",
-                          style: TextStyle(color: AppColors.secondaryText),
-                        ),
-                      ],
-                    );
-                  },
-                ),
+                        itemBuilder: (context, index) {
+                          return StreamBuilder<
+                                  DocumentSnapshot<Map<String, dynamic>>>(
+                              stream: autchCon.streamUsers(myFriends[index]),
+                              builder: (context, snapshot2) {
+                                if (snapshot2.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(),
+                                  );
+                                } else if (snapshot2.data!.data()!.isEmpty) {
+                                  return const Center(
+                                    child: Text("No Friends"),
+                                  );
+                                } else if (snapshot2.hasError) {
+                                  return const Center(
+                                    child: Text("Error"),
+                                  );
+                                }
+
+                                var data = snapshot2.data!.data();
+
+                                return Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(100),
+                                      child: Image(
+                                        image: NetworkImage(data!['photo']),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      data['name'],
+                                      style: const TextStyle(
+                                          color: AppColors.secondaryText),
+                                    ),
+                                  ],
+                                );
+                              });
+                        },
+                      );
+                    }),
               ),
             ],
           ),
