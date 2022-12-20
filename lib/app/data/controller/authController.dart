@@ -9,7 +9,7 @@ class AuthController extends GetxController {
   UserCredential? _userCredential;
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore fireStore = FirebaseFirestore.instance;
-  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late TextEditingController searchFriendsController;
 
   @override
