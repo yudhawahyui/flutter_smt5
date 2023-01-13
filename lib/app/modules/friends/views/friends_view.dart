@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_smt5/app/data/controller/authController.dart';
+import 'package:flutter_smt5/app/routes/app_pages.dart';
 import 'package:flutter_smt5/app/utils/style/AppColor.dart';
 import 'package:flutter_smt5/app/utils/widget/Header.dart';
 import 'package:flutter_smt5/app/utils/widget/PeopleYouMayKnow.dart';
@@ -13,7 +14,7 @@ import '../controllers/friends_controller.dart';
 
 class FriendsView extends GetView<FriendsController> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
-  final autchCon = Get.find<AuthController>();
+  final authCon = Get.find<AuthController>();
   FriendsView({super.key});
 
   @override
@@ -82,11 +83,11 @@ class FriendsView extends GetView<FriendsController> {
                                   ),
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(30),
-                                    child: const CircleAvatar(
+                                    child: CircleAvatar(
                                       backgroundColor: Colors.amber,
                                       radius: 25,
                                       foregroundImage: NetworkImage(
-                                          "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
+                                          authCon.auth.currentUser!.photoURL!),
                                     ),
                                   ),
                                 ],
@@ -97,9 +98,9 @@ class FriendsView extends GetView<FriendsController> {
                               context.isPhone
                                   ? TextField(
                                       onChanged: (value) =>
-                                          autchCon.searchFriends(value),
+                                          authCon.searchFriends(value),
                                       controller:
-                                          autchCon.searchFriendsController,
+                                          authCon.searchFriendsController,
                                       decoration: InputDecoration(
                                         filled: true,
                                         fillColor: Colors.white,
@@ -142,7 +143,7 @@ class FriendsView extends GetView<FriendsController> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Obx(
-                        () => autchCon.hasilPencarian.isEmpty
+                        () => authCon.hasilPencarian.isEmpty
                             ? Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -153,29 +154,55 @@ class FriendsView extends GetView<FriendsController> {
                                         color: AppColors.secondaryText),
                                   ),
                                   PeopleYouMayKnow(),
+                                  Row(
+                                    children: [
+                                      const Text(
+                                        "My Friends",
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: AppColors.secondaryText,
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      GestureDetector(
+                                        onTap: () =>
+                                            Get.toNamed(Routes.FRIENDS),
+                                        child: const Text(
+                                          "More",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            color: AppColors.secondaryText,
+                                          ),
+                                        ),
+                                      ),
+                                      const Icon(
+                                        UniconsLine.arrow_right,
+                                      ),
+                                    ],
+                                  ),
                                   MyFriends(),
                                 ],
                               )
                             : ListView.builder(
                                 padding: const EdgeInsets.all(8),
-                                itemCount: autchCon.hasilPencarian.length,
+                                itemCount: authCon.hasilPencarian.length,
                                 itemBuilder: (context, index) => ListTile(
-                                  onTap: () => autchCon.addFriends(
-                                      autchCon.hasilPencarian[index]["email"]),
+                                  onTap: () => authCon.addFriends(
+                                      authCon.hasilPencarian[index]["email"]),
                                   leading: ClipRRect(
                                     borderRadius: BorderRadius.circular(30),
                                     child: CircleAvatar(
                                       backgroundColor: Colors.amber,
                                       radius: 25,
-                                      foregroundImage: NetworkImage(autchCon
+                                      foregroundImage: NetworkImage(authCon
                                           .hasilPencarian[index]["photo"]),
                                     ),
                                   ),
                                   title: Text(
-                                    autchCon.hasilPencarian[index]["name"],
+                                    authCon.hasilPencarian[index]["name"],
                                   ),
                                   subtitle: Text(
-                                    autchCon.hasilPencarian[index]["email"],
+                                    authCon.hasilPencarian[index]["email"],
                                   ),
                                   trailing: const Icon(UniconsLine.plus),
                                 ),

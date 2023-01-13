@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smt5/app/data/controller/authController.dart';
 import 'package:flutter_smt5/app/modules/home/controllers/home_controller.dart';
+import 'package:flutter_smt5/app/routes/app_pages.dart';
 import 'package:flutter_smt5/app/utils/style/AppColor.dart';
 import 'package:flutter_smt5/app/utils/widget/Header.dart';
+import 'package:flutter_smt5/app/utils/widget/PeopleYouMayKnow.dart';
 import 'package:flutter_smt5/app/utils/widget/SideBar.dart';
-import 'package:flutter_smt5/app/utils/widget/UpcomingTask.dart';
 import 'package:flutter_smt5/app/utils/widget/myFriends.dart';
 import 'package:flutter_smt5/app/utils/widget/myTask.dart';
 import 'package:get/get.dart';
+import 'package:unicons/unicons.dart';
 
 class HomeView extends GetView<HomeController> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey<ScaffoldState>();
+  final authCon = Get.find<AuthController>();
 
   HomeView({super.key});
   @override
@@ -75,11 +79,11 @@ class HomeView extends GetView<HomeController> {
                               ),
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(30),
-                                child: const CircleAvatar(
+                                child: CircleAvatar(
                                   backgroundColor: Colors.amber,
                                   radius: 25,
                                   foregroundImage: NetworkImage(
-                                      "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
+                                      authCon.auth.currentUser!.photoURL!),
                                 ),
                               ),
                             ],
@@ -99,22 +103,47 @@ class HomeView extends GetView<HomeController> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: Get.height * 0.25,
+                            height: Get.height * 0.35,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  "My Tasks",
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "People you may know",
                                   style: TextStyle(
                                     fontSize: 25,
                                     color: AppColors.secondaryText,
                                   ),
                                 ),
-
-                                // my task
-                                MyTask(),
+                                PeopleYouMayKnow(),
+                                Row(
+                                  children: [
+                                    const Text(
+                                      "My Friends",
+                                      style: TextStyle(
+                                        fontSize: 25,
+                                        color: AppColors.secondaryText,
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    GestureDetector(
+                                      onTap: () => Get.toNamed(Routes.FRIENDS),
+                                      child: const Text(
+                                        "More",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: AppColors.secondaryText,
+                                        ),
+                                      ),
+                                    ),
+                                    const Icon(
+                                      UniconsLine.arrow_right,
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ),
@@ -123,12 +152,28 @@ class HomeView extends GetView<HomeController> {
                               ? Expanded(
                                   child: Row(
                                     children: [
-                                      UpcomingTask(),
+                                      MyTask(),
                                       MyFriends(),
                                     ],
                                   ),
                                 )
-                              : const UpcomingTask(),
+                              : Expanded(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        "My Tasks",
+                                        style: TextStyle(
+                                          fontSize: 25,
+                                          color: AppColors.secondaryText,
+                                        ),
+                                      ),
+                                      MyTask(),
+                                    ],
+                                  ),
+                                ),
                         ],
                       ),
                     ),

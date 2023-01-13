@@ -34,8 +34,8 @@ class PeopleYouMayKnow extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image(
-                        width: Get.width * 0.6,
-                        height: Get.height * 0.5,
+                        width: 200,
+                        height: 200,
                         fit: BoxFit.cover,
                         image: NetworkImage(
                           hasil['photo'],
@@ -63,7 +63,7 @@ class PeopleYouMayKnow extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.zero,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
+                              borderRadius: BorderRadius.circular(25),
                             ),
                           ),
                           onPressed: () => authCon.addFriends(hasil['email']),

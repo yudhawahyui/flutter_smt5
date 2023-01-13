@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smt5/app/data/controller/authController.dart';
 import 'package:flutter_smt5/app/utils/style/AppColor.dart';
 import 'package:get/get.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({
+  Profile({
     Key? key,
   }) : super(key: key);
+  final authCon = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +19,11 @@ class Profile extends StatelessWidget {
                   flex: 1,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(30),
-                    child: const CircleAvatar(
+                    child: CircleAvatar(
                       backgroundColor: Colors.amber,
                       radius: 150,
-                      foregroundImage: NetworkImage(
-                          "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
+                      foregroundImage:
+                          NetworkImage(authCon.auth.currentUser!.photoURL!),
                     ),
                   ),
                 ),
@@ -30,17 +32,17 @@ class Profile extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text(
-                        "Ahmad Kratos",
-                        style: TextStyle(
+                        authCon.auth.currentUser!.displayName!,
+                        style: const TextStyle(
                           fontSize: 40,
                           color: AppColors.secondaryText,
                         ),
                       ),
                       Text(
-                        "God of War | New All Father | ahmad.kratos@olympus.com",
-                        style: TextStyle(
+                        authCon.auth.currentUser!.email!,
+                        style: const TextStyle(
                           fontSize: 12,
                           color: AppColors.secondaryText,
                         ),
@@ -57,26 +59,26 @@ class Profile extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(30),
-                    child: const CircleAvatar(
+                    child: CircleAvatar(
                       backgroundColor: Colors.amber,
                       radius: 150,
-                      foregroundImage: NetworkImage(
-                          "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
+                      foregroundImage:
+                          NetworkImage(authCon.auth.currentUser!.photoURL!),
                     ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    "Ahmad Kratos",
-                    style: TextStyle(
+                  Text(
+                    authCon.auth.currentUser!.displayName!,
+                    style: const TextStyle(
                       fontSize: 30,
                       color: AppColors.secondaryText,
                     ),
                   ),
-                  const Text(
-                    "God of War | New All Father | ahmad.kratos@olympus.com",
-                    style: TextStyle(
+                  Text(
+                    authCon.auth.currentUser!.email!,
+                    style: const TextStyle(
                       fontSize: 12,
                       color: AppColors.secondaryText,
                     ),

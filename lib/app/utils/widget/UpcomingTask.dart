@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_smt5/app/data/controller/authController.dart';
 import 'package:flutter_smt5/app/utils/style/AppColor.dart';
+import 'package:get/get.dart';
 
 class UpcomingTask extends StatelessWidget {
-  const UpcomingTask({
+  UpcomingTask({
     Key? key,
   }) : super(key: key);
+  final authC = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class UpcomingTask extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 5,
             ),
             SizedBox(
               height: 500,
@@ -46,42 +49,11 @@ class UpcomingTask extends StatelessWidget {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(30),
-                              child: const CircleAvatar(
+                              child: CircleAvatar(
                                 backgroundColor: Colors.amber,
                                 radius: 20,
                                 foregroundImage: NetworkImage(
-                                    "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
-                              ),
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: const CircleAvatar(
-                                backgroundColor: Colors.amber,
-                                radius: 20,
-                                foregroundImage: NetworkImage(
-                                    "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
-                              ),
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: const CircleAvatar(
-                                backgroundColor: Colors.amber,
-                                radius: 20,
-                                foregroundImage: NetworkImage(
-                                    "https://cdn.mos.cms.futurecdn.net/XDLmYsaAh4xF2yVzqVZPva.jpg"),
-                              ),
-                            ),
-                            const Spacer(),
-                            Container(
-                              height: 25,
-                              width: 80,
-                              color: AppColors.primaryBg,
-                              child: const Center(
-                                child: Text(
-                                  "100%",
-                                  style:
-                                      TextStyle(color: AppColors.primaryText),
-                                ),
+                                    authC.auth.currentUser!.photoURL!),
                               ),
                             ),
                           ],

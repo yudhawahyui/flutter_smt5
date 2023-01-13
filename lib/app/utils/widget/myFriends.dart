@@ -2,13 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smt5/app/data/controller/authController.dart';
 import 'package:get/get.dart';
-import 'package:unicons/unicons.dart';
 
-import '../../routes/app_pages.dart';
 import '../style/AppColor.dart';
 
 class MyFriends extends StatelessWidget {
-  final autchCon = Get.find<AuthController>();
+  final authCon = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,38 +16,10 @@ class MyFriends extends StatelessWidget {
           padding: const EdgeInsets.all(0),
           child: Column(
             children: [
-              Row(
-                children: [
-                  const Text(
-                    "My Friends",
-                    style: TextStyle(
-                      fontSize: 25,
-                      color: AppColors.secondaryText,
-                    ),
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                    onTap: () => Get.toNamed(Routes.FRIENDS),
-                    child: const Text(
-                      "More",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: AppColors.secondaryText,
-                      ),
-                    ),
-                  ),
-                  const Icon(
-                    UniconsLine.arrow_right,
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 20,
-              ),
               SizedBox(
-                height: 500,
+                height: 700,
                 child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                  stream: autchCon.streamFriends(),
+                  stream: authCon.streamFriends(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
@@ -61,26 +31,30 @@ class MyFriends extends StatelessWidget {
                       );
                     }
 
-                    var myFriends = (snapshot.data!.data()
-                        as Map<String, dynamic>)['emailFriends'] as List;
+                    var myFriends = (snapshot.data!.data() ??
+                        '' as Map<String, dynamic>)['emailFriends'] as List;
 
                     return GridView.builder(
                       shrinkWrap: true,
                       itemCount: myFriends.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: !context.isPhone ? 3 : 2,
+                        crossAxisCount: !context.isPhone ? 4 : 4,
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
                       ),
                       itemBuilder: (context, index) {
                         return StreamBuilder<
                             DocumentSnapshot<Map<String, dynamic>>>(
-                          stream: autchCon.streamUsers(myFriends[index]),
+                          stream: authCon.streamUsers(myFriends[index]),
                           builder: (context, snapshot2) {
                             if (snapshot2.connectionState ==
                                 ConnectionState.waiting) {
                               return const Center(
                                 child: CircularProgressIndicator(),
+                              );
+                            } else if (snapshot.data!.data() == null) {
+                              return const Center(
+                                child: Text("You don't have any friends"),
                               );
                             }
 
@@ -89,14 +63,18 @@ class MyFriends extends StatelessWidget {
                             return Column(
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Image(
-                                    image: NetworkImage(data!['photo']),
-                                    height: Get.height * 0.15,
-                                    width: Get.width * 0.5,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: !context.isPhone
+                                        ? Image(
+                                            image: NetworkImage(data!['photo']),
+                                            height: 120,
+                                            width: 150,
+                                            fit: BoxFit.cover)
+                                        : Image(
+                                            image: NetworkImage(data!['photo']),
+                                            height: Get.height * 0.15,
+                                            width: Get.width * 0.5,
+                                            fit: BoxFit.cover)),
                                 const SizedBox(
                                   height: 5,
                                 ),

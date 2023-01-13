@@ -3,6 +3,7 @@ import 'package:flutter_smt5/app/data/controller/authController.dart';
 import 'package:flutter_smt5/app/routes/app_pages.dart';
 import 'package:flutter_smt5/app/utils/style/AppColor.dart';
 import 'package:flutter_smt5/app/utils/widget/Header.dart';
+import 'package:flutter_smt5/app/utils/widget/PeopleYouMayKnow.dart';
 import 'package:flutter_smt5/app/utils/widget/SideBar.dart';
 import 'package:flutter_smt5/app/utils/widget/myTask.dart';
 import 'package:flutter_smt5/app/utils/widget/Profile.dart';
@@ -128,9 +129,9 @@ class ProfileView extends GetView<ProfileController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Profile(),
+                          Profile(),
                           const Text(
-                            "My Tasks",
+                            "People May You Know",
                             style: TextStyle(
                               fontSize: 25,
                               color: AppColors.secondaryText,
@@ -138,7 +139,7 @@ class ProfileView extends GetView<ProfileController> {
                           ),
                           SizedBox(
                             height: Get.height * 0.25,
-                            child: const MyTask(),
+                            child: PeopleYouMayKnow(),
                           ),
                         ],
                       ),
